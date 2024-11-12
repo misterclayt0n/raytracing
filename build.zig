@@ -23,6 +23,15 @@ pub fn build(b: *std.Build) void {
 
     b.installArtifact(vec3_lib);
 
+    const color_lib = b.addStaticLibrary(.{
+        .name = "vec3",
+        .root_source_file = b.path("src/color.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+
+    b.installArtifact(color_lib);
+
     const run_cmd = b.addRunArtifact(exe);
 
     run_cmd.step.dependOn(b.getInstallStep());

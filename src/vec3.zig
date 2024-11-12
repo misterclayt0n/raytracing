@@ -62,7 +62,6 @@ pub const Vec3 = struct {
 
 // Semantic aliases
 pub const Point3 = Vec3;
-pub const Color = Vec3;
 
 // Unary subtraction
 pub fn neg(v: Vec3) Vec3 {
@@ -126,6 +125,8 @@ pub fn cross(u: Vec3, v: Vec3) Vec3 {
 }
 
 // Print the mf
-pub fn print_vec3(v: Vec3) !void {
-    std.debug.print("{d} {d} {d}\n", .{v.e[0], v.e[1], v.e[2]});
+//
+// Pass some sort of stdout here, anything that can have a print function
+pub fn print_vec3(w: anytype, v: Vec3) !void {
+    try w.print("{d} {d} {d}\n", .{v.e[0], v.e[1], v.e[2]});
 }
