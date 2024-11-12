@@ -14,6 +14,15 @@ pub fn build(b: *std.Build) void {
 
     b.installArtifact(exe);
 
+    const vec3_lib = b.addStaticLibrary(.{
+        .name = "vec3",
+        .root_source_file = b.path("src/vec3.zig"),
+        .target = target,
+        .optimize = optimize,
+    });
+
+    b.installArtifact(vec3_lib);
+
     const run_cmd = b.addRunArtifact(exe);
 
     run_cmd.step.dependOn(b.getInstallStep());
