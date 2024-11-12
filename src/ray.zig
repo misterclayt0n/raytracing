@@ -1,7 +1,7 @@
 const Vec3 = @import("vec3.zig").Vec3;
 const Point3 = @import("vec3.zig").Point3;
 
-const Ray = struct {
+pub const Ray = struct {
     orig: Point3,
     dir: Vec3,
 

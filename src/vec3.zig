@@ -20,7 +20,7 @@ pub const Vec3 = struct {
     //
 
     pub fn add(self: Vec3, other: Vec3) Vec3 {
-        return Vec3{.e{
+        return Vec3{ .e = .{
             self.e[0] + other.e[0],
             self.e[1] + other.e[1],
             self.e[2] + other.e[2],
@@ -28,7 +28,7 @@ pub const Vec3 = struct {
     }
 
     pub fn sub(self: Vec3, other: Vec3) Vec3 {
-        return Vec3{.e{
+        return Vec3{.e = .{
             self.e[0] - other.e[0],
             self.e[1] - other.e[1],
             self.e[2] - other.e[2],
@@ -36,7 +36,7 @@ pub const Vec3 = struct {
     }
 
     pub fn mult_scalar(self: Vec3, t: f64) Vec3 {
-        return Vec3{.e{
+        return Vec3{.e = .{
             self.e[0] * t,
             self.e[1] * t,
             self.e[2] * t,
