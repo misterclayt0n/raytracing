@@ -24,7 +24,7 @@ pub fn build(b: *std.Build) void {
     b.installArtifact(vec3_lib);
 
     const color_lib = b.addStaticLibrary(.{
-        .name = "vec3",
+        .name = "color",
         .root_source_file = b.path("src/color.zig"),
         .target = target,
         .optimize = optimize,
@@ -33,7 +33,7 @@ pub fn build(b: *std.Build) void {
     b.installArtifact(color_lib);
 
     const ray_lib = b.addStaticLibrary(.{
-        .name = "vec3",
+        .name = "ray",
         .root_source_file = b.path("src/ray.zig"),
         .target = target,
         .optimize = optimize,
