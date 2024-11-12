@@ -4,7 +4,7 @@ pub const Vec3 = struct {
     e: [3]f64,
 
     //
-    // Constructors
+    // Constructors.
     //
 
     pub fn init(e0: f64, e1: f64, e2: f64) Vec3 {
@@ -16,7 +16,7 @@ pub const Vec3 = struct {
     }
 
     //
-    // Modify
+    // Modify.
     //
 
     pub fn add(self: Vec3, other: Vec3) Vec3 {
@@ -60,10 +60,10 @@ pub const Vec3 = struct {
     }
 };
 
-// Semantic aliases
+// Semantic aliases.
 pub const Point3 = Vec3;
 
-// Unary subtraction
+// Unary subtraction.
 pub fn neg(v: Vec3) Vec3 {
     return Vec3{
         .e {
@@ -75,7 +75,7 @@ pub fn neg(v: Vec3) Vec3 {
 }
 
 //
-// Binary operations
+// Binary operations.
 //
 
 pub fn add(u: Vec3, v: Vec3) Vec3 {
@@ -108,12 +108,12 @@ pub fn div_scalar(v: Vec3, t: f64) Vec3 {
     return v.div_scalar(t);
 }
 
-// Dot product
+// Dot product.
 pub fn dot(u: Vec3, v: Vec3) f64 {
     return u.e[0] * v.e[0] + u.e[1] * v.e[1] + u.e[2] * v.e[2];
 }
 
-// Cross product
+// Cross product.
 pub fn cross(u: Vec3, v: Vec3) Vec3 {
     return Vec3{
         .e = .{
@@ -124,9 +124,9 @@ pub fn cross(u: Vec3, v: Vec3) Vec3 {
     };
 }
 
-// Print the mf
+// Print the mf.
 //
-// Pass some sort of stdout here, anything that can have a print function
+// Pass some sort of stdout here, anything that can have a print function.
 pub fn print_vec3(w: anytype, v: Vec3) !void {
     try w.print("{d} {d} {d}\n", .{v.e[0], v.e[1], v.e[2]});
 }
