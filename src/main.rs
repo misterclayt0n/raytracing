@@ -7,6 +7,8 @@ use vec3::{Point3, Vec3};
 mod vec3;
 mod color;
 mod ray;
+mod hittable;
+mod sphere;
 
 fn hit_sphere(center: &Point3, radius: f64, ray: &Ray) -> f64 {
     let oc = ray.orig - *center;
@@ -16,9 +18,9 @@ fn hit_sphere(center: &Point3, radius: f64, ray: &Ray) -> f64 {
     let discriminant = b * b - 4.0 * a * c;
 
     if discriminant < 0.0 {
-        return -1.0;
+        return -1.0; // No real roots; the ray doesn't hit the sphere.
     } else {
-        return (-b - discriminant.sqrt()) / (2.0 * a);
+        return (-b - discriminant.sqrt()) / (2.0 * a); // Smallest positive root.
     }
 }
 
@@ -45,7 +47,7 @@ fn main() {
         image_height = 1;
     }
 
-    // Camera
+    // Camera.
     let focal_length = 1.0;
     let viewport_height = 2.0;
     let viewport_width = viewport_height * (image_width as f64 / image_height as f64);
